@@ -33,4 +33,26 @@ router.get('/', (req, res, next) => {
   
 });
 
+/* GET single movie */
+router.get('/movie/:id', (req, res, next) => {
+  const movieId = req.params.id;
+  const thisMovieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${apiKey}`;
+
+  //Make movie request
+  request.get(thisMovieUrl, (error, response, movieData) => {
+    if (error) {
+      console.log(error);
+    }
+
+    const parsedMovieData = JSON.parse(movieData);
+    console.log(parsedMovieData.results);
+
+    res.render('singleMovie', {
+      title: "Movie App",
+      movies: parsedMovieData
+    });
+  });
+
+});
+
 module.exports = router;

@@ -13,7 +13,9 @@
         <% movies.forEach((movie) => { %>
           <div class="col-lg-4 col-md-6">
             <div class="pb-5">
-              <img class="pb-5 img-fluid" src="<%= imageBaseUrl + movie.poster_path %>" alt="<%= movie.title %>">
+              <a href="/movie/<%= movie.id %>">
+                <img class="pb-5 img-fluid" src="<%= imageBaseUrl + movie.poster_path %>" alt="<%= movie.title %>">
+              </a>
               <h2><%= movie.title %></h2>
               <hr>
               <p class="lead"><%= movie.overview %></p>

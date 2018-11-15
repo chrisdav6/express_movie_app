@@ -1,0 +1,30 @@
+<% include partials/header %>
+
+<section id="heading" class="py-5 bg-dark text-light text-center">
+  <div class="container">
+    <h1 class="display-2 mb-0"><%= title %></h1>
+    <p class="lead subtitle mb-0">Search for local playing movies</p>
+  </div>
+</section>
+
+<section id="singleMovie" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="display-4"><%= movies.title %></h1>
+        <hr>
+        <div class="row py-5 text-center text-md-left">
+          <div class="col-md-3 pb-4 pb-md-0">
+            <img class="img-fluid" src="<%= imageBaseUrl + movies.poster_path %>" alt="<%= movies.title %>">
+          </div>
+          <div class="col-md-9">
+            <p class="lead"><span>Genre</span> - <%= movies.genres[0].name %></p>
+          </div>
+        </div>
+        <a href="/" class="text-dark">Go Back</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% include partials/footer %>
