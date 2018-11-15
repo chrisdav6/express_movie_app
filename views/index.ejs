@@ -5,4 +5,16 @@
     <p>Welcome to <%= title %></p>
   </div>
 
+  <section id="movieList" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <% movies.results.forEach((movie) => { %>
+            <p><%= movie.title %></p>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <% include partials/footer %>
