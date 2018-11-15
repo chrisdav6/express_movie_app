@@ -11,14 +11,15 @@ const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
 router.get('/', (req, res, next) => {
 
   //Make movie request
-  request.get(nowPlayingUrl, (error, response, movies) => {
+  request.get(nowPlayingUrl, (error, response, movieData) => {
     if(error) {
       console.log(error);
     }
-    console.log(movies);
+    console.log(movieData);
     res.render('index', { 
       title: "Movie App",
-      movies: JSON.parse(movies) 
+      movies: JSON.parse(movieData) ,
+      imgUrl: imageBaseUrl
     });
   })
 

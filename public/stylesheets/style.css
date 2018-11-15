@@ -1,1 +1,12 @@
+html, body {
+  min-height: 100vh;
+}
 
+body {
+  font-family: Roboto;
+}
+
+.subtitle {
+  font-weight: 100;
+  font-size: 2rem;
+}

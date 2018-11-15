@@ -1,18 +1,25 @@
 <% include partials/header %>
 
-  <div class="container py-5">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </div>
+  <section id="heading" class="py-5 bg-dark text-light text-center">
+    <div class="container">
+      <h1 class="display-2 mb-0"><%= title %></h1>
+      <p class="lead subtitle mb-0">Search for local playing movies</p>
+    </div>
+  </section>
 
-  <section id="movieList" class="py-5">
+  <section id="movieList" class="py-5 text-center">
     <div class="container">
       <div class="row">
-        <div class="col">
-          <% movies.results.forEach((movie) => { %>
-            <p><%= movie.title %></p>
-          <% }); %>
-        </div>
+        <% movies.results.forEach((movie) => { %>
+          <div class="col-lg-4 col-md-6">
+            <div class="pb-5">
+              <img class="pb-5 img-fluid" src="<%= imgUrl %><%= movie.poster_path %>" alt="<%= movie.title %>">
+              <h2><%= movie.title %></h2>
+              <hr>
+              <p class="lead"><%= movie.overview %></p>
+            </div>
+          </div>
+        <% }); %>
       </div>
     </div>
   </section>
