@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<section id="heading" class="py-5 bg-dark text-light text-center">
+<section id="heading" class="py-5 text-light text-center">
   <div class="container">
     <h1 class="display-2 mb-0"><%= title %></h1>
     <p class="lead subtitle mb-0">Search for local playing movies</p>
@@ -13,6 +13,7 @@
       <div class="col">
         <h1 class="display-4 text-center text-md-left"><%= movies.title %></h1>
         <hr>
+        <h2 class="text-center text-md-left tagline"><%= movies.tagline %></h2>
         <div class="row py-5 text-center text-md-left">
           <div class="col-lg-4 col-md-6 pb-4 pb-md-0">
             <a href="<%= movies.homepage %>" target="_blank">
@@ -44,7 +45,9 @@
             <p class="lead"><span>Runtime</span> - <%= movies.runtime %> minutes</p>
           </div>
         </div>
-        <a href="/" class="text-dark backBtn d-inline-block mt-3"><i class="fas fa-chevron-circle-left"></i> Go Back</a>
+        <div class="d-flex">
+          <a href="/" class="text-dark backBtn d-inline-block mt-3 mx-auto mx-md-0"><i class="fas fa-chevron-circle-left"></i> Go Back</a>
+        </div>
       </div>
     </div>
   </div>

@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
     console.log(parsedMovieData.results);
 
     res.render('index', { 
-      title: "Movie App",
+      title: "Movie Finder 5000",
       movies: parsedMovieData.results
     });
   });
@@ -48,7 +48,7 @@ router.get('/movie/:id', (req, res, next) => {
     console.log(parsedMovieData.results);
 
     res.render('singleMovie', {
-      title: "Movie App",
+      title: "Movie Finder 5000",
       movies: parsedMovieData
     });
   });

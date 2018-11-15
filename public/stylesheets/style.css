@@ -6,6 +6,11 @@ body {
   font-family: Roboto;
 }
 
+#heading {
+  background: url(../images/curls.png);
+  background-attachment: fixed;
+}
+
 .subtitle {
   font-weight: 100;
   font-size: 2rem;
@@ -15,7 +20,22 @@ body {
   font-weight: 500;
 }
 
+.tagline {
+  font-weight: 300;
+}
+
 .backBtn {
   padding: .5em 1em;
   border: 1px solid #343A40; 
+}
+
+@media (max-width: 900px) {
+  #heading h1 {
+    line-height: 1;
+    padding-bottom: .35em;
+  }
+
+  .subtitle {
+    line-height: 1;
+  }
 }
