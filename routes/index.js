@@ -7,6 +7,12 @@ const apiBaseUrl = 'http://api.themoviedb.org/3';
 const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${apiKey}`;
 const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
 
+//Use imageBaseUrl in all routes
+router.use((req, res, next) => {
+  res.locals.imageBaseUrl = imageBaseUrl;
+  next();
+})
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
 
@@ -15,15 +21,15 @@ router.get('/', (req, res, next) => {
     if(error) {
       console.log(error);
     }
-    console.log(movieData);
+
+    const parsedMovieData = JSON.parse(movieData);
+    console.log(parsedMovieData.results);
+
     res.render('index', { 
       title: "Movie App",
-      movies: JSON.parse(movieData) ,
-      imgUrl: imageBaseUrl
+      movies: parsedMovieData.results
     });
-  })
-
-  //Render
+  });
   
 });
 
