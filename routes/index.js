@@ -55,4 +55,31 @@ router.get('/movie/:id', (req, res, next) => {
 
 });
 
+/* POST search */
+router.post('/search', (req, res, next) => {
+  const userSearchTerm = encodeURI(req.body.movieSearch);
+  const cat = req.body.cat;
+  const movieUrl = `${apiBaseUrl}/search/${cat}?query=${userSearchTerm}&api_key=${apiKey}`;
+  
+  //Make movie request
+  request.get(movieUrl, (error, response, movieData) => {
+    if (error) {
+      console.log(error);
+    }
+
+    let parsedMovieData = JSON.parse(movieData);
+    console.log(parsedMovieData.results);
+
+    if(cat === "person") {
+      parsedMovieData.results = parsedMovieData.results[0].known_for;
+    }
+    
+    res.render('index', {
+      title: "Movie Finder 5000",
+      movies: parsedMovieData.results
+    });
+  });
+  
+});
+
 module.exports = router;
