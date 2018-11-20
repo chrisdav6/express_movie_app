@@ -55,6 +55,27 @@ router.get('/movie/:id', (req, res, next) => {
 
 });
 
+/* GET theatres page. */
+router.get('/theatres', (req, res, next) => {
+
+  //Make fandango request
+  request.get(nowPlayingUrl, (error, response, movieData) => {
+    if (error) {
+      console.log(error);
+    }
+
+    const parsedMovieData = JSON.parse(movieData);
+    console.log(parsedMovieData.results);
+
+    res.render('theatres', {
+      title: "Movie Finder 5000",
+      movies: parsedMovieData.results
+    });
+  });
+  
+
+});
+
 /* POST search */
 router.post('/search', (req, res, next) => {
   const userSearchTerm = encodeURI(req.body.movieSearch);
@@ -80,6 +101,19 @@ router.post('/search', (req, res, next) => {
     });
   });
   
+});
+
+/* POST theatres */
+router.post('/findTheatres', (req, res, next) => {
+  const movieName = encodeURI(req.body.movieName);
+  const zip = req.body.zip;
+
+  res.render("theatres", {
+    title: "Movie Finder 5000",
+    movieName: decodeURIComponent(movieName)
+  });
+
+
 });
 
 module.exports = router;

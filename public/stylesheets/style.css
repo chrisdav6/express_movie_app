@@ -24,11 +24,6 @@ body {
   font-weight: 300;
 }
 
-.backBtn {
-  padding: .5em 1em;
-  border: 1px solid #343A40; 
-}
-
 @media (max-width: 900px) {
   #heading h1 {
     line-height: 1;

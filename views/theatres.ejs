@@ -1,0 +1,32 @@
+<% include partials/header %>
+
+<section id="heading" class="py-5 text-light text-center">
+  <div class="container">
+    <h1 class="display-2 mb-0">
+      <%= title %>
+    </h1>
+    <p class="lead subtitle mb-0">Search for local playing movies</p>
+  </div>
+</section>
+
+<section id="singleMovie" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>
+          <%= movieName %>
+        </h1>
+        <hr>
+        <h2>
+          Now Playing At
+        </h2>
+        
+        
+        <a href="/" class="btn btn-dark"><i class="fas fa-chevron-circle-left"></i> Go Back</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<% include partials/footer %>
